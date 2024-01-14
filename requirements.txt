@@ -2,3 +2,4 @@ fastapi
 psycopy2
 sqlalchemy==1.4.23
 passlib[bcrypt]
+python-jose[cryptography]
