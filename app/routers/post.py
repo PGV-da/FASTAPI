@@ -17,7 +17,7 @@ def get_posts(db: Session = Depends(get_db)):
     return posts
 
 @router.get("/{id}", response_model=schemas.Post)
-def get_post(id: int, db: Session = Depends(get_db)):
+def get_post(id: int, db: Session = Depends(get_db), get_current_user: int = Depends(oauth2.get_current_user)):
     # cursor.execute("""SELECT * FROM posts WHERE id = %s""", (str(id),))
     # post = cursor.fetchone()
     post = db.query(models.Post).filter(models.Post.id == id).first()
